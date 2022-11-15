@@ -1,0 +1,63 @@
+*{
+    padding: 5px;
+    margin: 5px;
+    font-family: arial;
+}
+nav{
+    
+    width:100%;
+    background:rgb(100,149,237);
+    color: whitesmoke;
+}
+label,input{
+    display: inline-block;
+    line-height: 20px;
+    height: 20px;
+    outline:none;
+    font-size: 13pt;
+    width: 100%;
+}
+form{
+    width: 1500px;
+    padding: 0px;
+    margin: auto;
+}
+h2{
+    text-align: center;
+}
+inṕut[type="submit"]{
+    margin-top: 10px;
+    cursor: pointer;
+    background-color:rgb(100,149,237);
+}
+table{
+  
+    width: 100%;
+    margin:auto;
+}
+tr{
+    line-height: 30px;
+   
+
+}
+tr#titulo{
+    font-weight: bold;
+    background-color: rgb(100,149,237);
+    color: wheat;
+    
+    
+}
+td{
+    padding: 0px 5px;
+    background: white;
+    color:black;
+   
+}
+a{
+    padding: 5px;
+    margin: 0px 5px;
+    text-decoration: none;
+    background-color:rgb(100,149,237);
+    color: white
+    
+}
