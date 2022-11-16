@@ -1,17 +1,11 @@
 
 <?php
-session_start();
+
 
 
 require_once './assents/header.php';
-try {
-    $pdo = new PDO("mysql:dbname=vat;host=localhost", "root", "mynewpassword");
-} catch (PDOException $e) {
-    echo "Erro no Banco de Dados!" . $e->getMessage();
-} catch (Exception $e) {
-    echo"Erro génerico" . $e->getMessage();
-}
-?>
+require_once './conexao.php';
+$res = $pdo->query("SELECT* FROM ordem ORDER BY id");?>
 
 <!DOCTYPE html>
 <html>
@@ -46,17 +40,8 @@ try {
                                           <th>Data</th>
                                            <th>Ação</th>
                                     </tr>
-                                </thead>
-
-
-                              
-
-                                    <?php
-                                   
-                                    $res = $pdo->query("SELECT* FROM ordem ORDER BY id");
-                                    $consulta = $res->fetchAll(PDO::FETCH_ASSOC);
-                               
-                                    for ($i = 0; $i < count($consulta); $i++) {
+                                    <?php  $consulta = $res->fetchAll(PDO::FETCH_ASSOC);?>
+                                    <?php for ($i = 0; $i < count($consulta); $i++) {
                                       echo "<tr>";  
                                       
                                         foreach ($consulta[$i] as $v) {
@@ -69,13 +54,28 @@ try {
                                         }
                                          
                                          echo "<td><a href='../EditarOrdem.php'>Editar</td></a>";
+                                          echo "<td><a href='../Excluir.php'>Excluir</td></a>";
                                        
                                     
                                     }
                                          
                                   
                                     ?>
+                                </thead>
+
+
+                              
+
                                   
+                                   
+                                   
+                               
+                                    
+                                      
+                                      
+                                       
+                                              
+                                      
                 
                                
                                 <tbody>

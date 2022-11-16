@@ -1,18 +1,6 @@
 
-<?php
-try 
-{    $pdo = new PDO("mysql:dbname=vat;host=localhost","root","mynewpassword");
-    
-} catch (PDOException $e) {
+<?php require_once './conexao.php';?>
 
-   echo "Erro no Banco de Dados!".$e->getMessage(); 
-} 
- catch (Exception $e){
-     echo"Erro génerico".$e->getMessage();    
-}
-
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -32,11 +20,7 @@ try
         $descricao = addslashes($_POST['descricao']);
         $ocorrencia = addslashes($_POST['ocorrencia']);
         $data = addslashes($_POST['datetime-local']);
-        
-        
-       
-    
-            $res = $pdo->query("INSERT INTO ordem(solicitante,descricao,ocorrencia,data)VALUES('$solicitante','$descricao','$ocorrencia','$data')");
+        $res = $pdo->query("INSERT INTO ordem(solicitante,descricao,ocorrencia,data)VALUES('$solicitante','$descricao','$ocorrencia','$data')");
             
   
                 

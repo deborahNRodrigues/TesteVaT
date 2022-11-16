@@ -1,20 +1,9 @@
 
-<?php
+<?php require_once './conexao.php';?>
 
  
 
-try 
-{    $pdo = new PDO("mysql:dbname=vat;host=localhost","root","mynewpassword");
-    
-} catch (PDOException $e) {
 
-   echo "Erro no Banco de Dados!".$e->getMessage(); 
-} 
- catch (Exception $e){
-     echo"Erro génerico".$e->getMessage();    
-}
-  
-?>
 
 <!DOCTYPE html>
 <html>
@@ -41,23 +30,24 @@ try
                                
                                   
                                     <label for="descricao">Descrição</label>
+                                    <input type="hidden" name="id"id="id"required="">
                                     <input type="text" name="descricao"id="descricao"required="">
                                     <label for="ocorrencia">Ocorrência</label>
                                     <input type="text" name="ocorrencia"id="ocorrencia" required="">
                                     
                              <?php
                                     if (isset($_POST['solicitante'])) {
-
-                                        $solicitante = addslashes($_POST['solicitante']);
+                                        $id = addcslashes($_POST['id']); 
                                         $descricao = addslashes($_POST['descricao']);
                                         $ocorrencia = addslashes($_POST['ocorrencia']);
-                                        $res = $pdo->query("UPDATE SET solicitante =$solicitante , decricao = $descricao,ocorrencia=$ocorrencia, WHERE id = $id");
+                                       
+                                        $res = $pdo->query("UPDATE SET decricao = $descricao,ocorrencia=$ocorrencia, WHERE id = $id");
                                         $res->execute();
                                         
                                     }
                                         ?>
 
-                                    <button class="btn waves-effect waves-light black-text" type="submit" name="editar"value="editar">Editar</button>
+                                    <button class="btn waves-effect waves-light black-text" type="salvar" name="editar"value="editar">Editar</button>
                             </div>
                         </div>
                     </div>
